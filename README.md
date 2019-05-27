@@ -5,6 +5,8 @@ This [Nixpkgs](https://nixos.org/nixpkgs/) overlay adds a `fcbScript` function (
 
 ## How to include
 
+`example.nix`:
+
 ```nix
 rec {
 
@@ -21,7 +23,29 @@ rec {
 }
 ```
 
-## Example usage
+`QUICKSTART.md`:
+
+````markdown
+# Welcome!
+
+This is how you create an order:
+```
+curl -XPOST http://custom.service.lolz/sendOrder
+```
+````
+
+```bash
+$ nix-build -A send-random-order example.nix
+building '/nix/store/smilp4ia1s4sj9dzjixkr0yjr7mhz7hj-send-random-order-src.drv'...
+these derivations will be built:
+  /nix/store/abqmc5n2rjqipxxqaykivjr8wrljd6r2-send-random-order.drv
+building '/nix/store/abqmc5n2rjqipxxqaykivjr8wrljd6r2-send-random-order.drv'...
+/nix/store/ymjpfnjs5ja8faiy2igf2k7pjw1ga7v5-send-random-order
+$ cat /nix/store/ymjpfnjs5ja8faiy2igf2k7pjw1ga7v5-send-random-order
+curl -XPOST http://custom.service.lolz/sendOrder
+```
+
+## API
 
 Extract only fenced code block from markdown document (the first argument is the name used in the store paths):
 
