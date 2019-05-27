@@ -1,3 +1,3 @@
 self: super: {
-    extract-snippet = super.callPackage ./markdown-snippet.nix {};
+    fcbScript = super.callPackage ./markdown-snippet.nix {};
 }

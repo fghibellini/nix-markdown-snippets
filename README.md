@@ -11,7 +11,7 @@ rec {
     nix-markdown-snippets = import (builtins.fetchGit {
         url = "https://github.com/fghibellini/nix-markdown-snippets.git";
         ref = "master";
-        rev = "9e6b483cdb8cfdbf1bc6e59aa980d3af6b1be31a";
+        rev = "8a72e682be186264940e8dd253d65edbda1c37a3";
     });
 
     nixpkgs = import <nixpkgs> { overlays = [ nix-markdown-snippets ]; };
