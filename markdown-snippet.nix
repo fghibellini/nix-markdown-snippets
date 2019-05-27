@@ -1,5 +1,6 @@
 { fetchFromGitHub, writeScript, runCommand, gawk, stdenv, utillinux, findutils, bash, gnused }:
-{ pattern, path, filter ? "cat" }:
+name:
+{ path, pattern ? "." , filter ? "cat" }:
 let
 
     markdown-snippets = fetchFromGitHub {
@@ -9,9 +10,9 @@ let
         sha256 = "10429vhllwhd0jp35h3zldjgr0cg7r89pim6zkcmxcqyip7vvzx1";
     };
 
-    script = writeScript "markdown-snippet.sh" (builtins.readFile script-contents);
+    script = writeScript "${name}" (builtins.readFile script-contents);
 
-    script-contents = runCommand "markdown-snippet-extraction" { inherit pattern; buildInputs = [ gawk stdenv utillinux findutils bash gnused ]; } ''
+    script-contents = runCommand "${name}-src" { inherit pattern; buildInputs = [ gawk stdenv utillinux findutils bash gnused ]; } ''
         cd ${markdown-snippets}
         bash ./extract-matching-block.sh "$pattern" ${path} | ${gen-filter filter} > $out
     '';
