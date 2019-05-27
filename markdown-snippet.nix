@@ -17,6 +17,6 @@ let
         bash ./extract-matching-block.sh "$pattern" ${path} | ${gen-filter filter} > $out
     '';
 
-    gen-filter = text: writeScript "markdown-snippet-filter" text;
+    gen-filter = text: writeScript "${name}-filter" text;
 
 in script
