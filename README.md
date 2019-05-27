@@ -11,7 +11,7 @@ rec {
     nix-markdown-snippets = import (builtins.fetchGit {
         url = "https://github.com/fghibellini/nix-markdown-snippets.git";
         ref = "master";
-        rev = "94697784cea3f657718da174e081da70066429ea";
+        rev = "02f17250f8a2a6496448b910e33b9ce59942aa1c";
     });
 
     nixpkgs = import <nixpkgs> { overlays = [ nix-markdown-snippets ]; };
@@ -26,13 +26,13 @@ rec {
 Extract only fenced code block from markdown document (the first argument is the name used in the store paths):
 
 ```nix
-fcbScript "send-random-order" { path = ../docs/QUICKSTART.md; };
+fcbScript "send-random-order" { path = ../docs/QUICKSTART.md; }
 ```
 
 Extract only the code block matching a grep pattern:
 
 ```nix
-fcbScript "send-random-order" { path = ../docs/QUICKSTART.md; pattern = "curl.*-XPOST"; };
+fcbScript "send-random-order" { path = ../docs/QUICKSTART.md; pattern = "curl.*-XPOST"; }
 ```
 
 Pipe the extracted code block through a filter command:
@@ -43,5 +43,5 @@ fcbScript "send-random-order" {
         filter = ''
             sed 's/10\.0\.0\.1:3920/localhost:9000/'
         '';
-    };
+    }
 ```
