@@ -1,6 +1,4 @@
 { fetchFromGitHub, writeScript, runCommand, gawk, stdenv, utillinux, findutils, bash, gnused }:
-name:
-{ path, pattern ? "." , filter ? "cat" }:
 let
 
     markdown-snippets = fetchFromGitHub {
@@ -9,6 +7,11 @@ let
         rev    = "cf6afee83925db13a49c13279222db0a0c2485eb";
         sha256 = "10429vhllwhd0jp35h3zldjgr0cg7r89pim6zkcmxcqyip7vvzx1";
     };
+
+in
+name:
+{ path, pattern ? "." , filter ? "cat" }:
+let
 
     script = writeScript "${name}" (builtins.readFile script-contents);
 
