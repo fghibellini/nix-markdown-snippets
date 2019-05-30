@@ -3,6 +3,8 @@
 
 This [Nixpkgs](https://nixos.org/nixpkgs/) overlay adds a `fcbScript` function (fcb stands for **F**enced **C**ode **B**lock).
 
+Used in [nix-haskell-monorepo tutorial - testing the docs](https://github.com/fghibellini/nix-haskell-monorepo/tree/master/nix-tests/testing-the-docs).
+
 ## How to include
 
 `example.nix`:
